@@ -9,7 +9,7 @@ interface IFormData {
 }
 
 export default function Contact() {
-  // Estado inicial tipado
+
   const [formData, setFormData] = useState<IFormData>({
     name: "",
     email: "",
@@ -18,7 +18,7 @@ export default function Contact() {
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
-  // Manejador de cambios en inputs (Tipado genérico para Input y TextArea)
+
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -27,12 +27,12 @@ export default function Contact() {
     }));
   };
 
-  // Manejador del envío (Simulado)
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulación de envío a backend
+  
     setTimeout(() => {
       alert(`Mensaje de ${formData.name} enviado (Simulación)`);
       setIsSubmitting(false);
