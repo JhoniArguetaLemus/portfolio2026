@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import  { useState} from "react";
 
 import type { ChangeEvent, FormEvent } from "react";
 // Definimos la interfaz para el estado del formulario
@@ -8,7 +8,7 @@ interface IFormData {
   message: string;
 }
 
-export default function Contact(): JSX.Element {
+export default function Contact() {
   // Estado inicial tipado
   const [formData, setFormData] = useState<IFormData>({
     name: "",

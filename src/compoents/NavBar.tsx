@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 
-export default function NavBar(): JSX.Element {
+export default function NavBar() {
   const location = useLocation();
 
   // Tipado estricto: 'path' es string y la función devuelve un boolean
