@@ -1,5 +1,6 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState} from "react";
 
+import type { ChangeEvent, FormEvent } from "react";
 // Definimos la interfaz para el estado del formulario
 interface IFormData {
   name: string;
