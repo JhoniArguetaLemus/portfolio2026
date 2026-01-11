@@ -101,7 +101,7 @@ export default function NavBar() {
               onClick={closeMenu}
               className={`${mobileLinkBaseClasses} ${isActive('/') ? 'bg-slate-800 text-blue-400' : 'text-slate-300 hover:bg-slate-800 hover:text-white'}`}
             >
-              Home
+              Inicio
             </Link>
 
             <Link 
@@ -109,7 +109,7 @@ export default function NavBar() {
               onClick={closeMenu}
               className={`${mobileLinkBaseClasses} ${isActive('/about') ? 'bg-slate-800 text-blue-400' : 'text-slate-300 hover:bg-slate-800 hover:text-white'}`}
             >
-              About
+              Sobre mí
             </Link>
 
             <Link 
@@ -117,7 +117,7 @@ export default function NavBar() {
               onClick={closeMenu}
               className={`${mobileLinkBaseClasses} mt-4 ${isActive('/contact') ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white'}`}
             >
-              Contact Me
+              Contactame 
             </Link>
           </div>
         </div>
