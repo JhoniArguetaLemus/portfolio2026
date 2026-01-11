@@ -27,7 +27,7 @@ export default function Home() {
           </h1>
 
           <p className="text-lg text-slate-400 max-w-lg mx-auto lg:mx-0">
-            Hola, soy Jhoni. Estudiante de Ingeniería de Sistemas transformando ideas complejas en código limpio, eficiente y escalable.
+            Hola, soy Jhonis Argueta. Estudiante de Ingeniería de Sistemas transformando ideas complejas en código limpio, eficiente y escalable.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
