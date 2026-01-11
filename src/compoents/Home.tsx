@@ -32,7 +32,7 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
             <Link 
-              to="/about" 
+              to="/proyectos" 
               className="px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40 hover:-translate-y-1"
             >
               Ver Proyectos

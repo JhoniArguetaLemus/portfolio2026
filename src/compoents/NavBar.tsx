@@ -37,13 +37,18 @@ export default function NavBar() {
           {/* DESKTOP LINKS (Hidden on Mobile) */}
           <div className="hidden md:flex gap-8 items-center">
             <Link to="/" className={`${linkBaseClasses} ${isActive('/') ? 'text-blue-400' : 'text-slate-300'}`}>
-              Home
+              Inicio
               <span className={`absolute -bottom-1 left-0 h-0.5 bg-blue-400 transition-all duration-300 ${isActive('/') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
 
             <Link to="/about" className={`${linkBaseClasses} ${isActive('/about') ? 'text-blue-400' : 'text-slate-300'}`}>
-              About
+              Sobre mí
               <span className={`absolute -bottom-1 left-0 h-0.5 bg-blue-400 transition-all duration-300 ${isActive('/about') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+            </Link>
+
+            <Link to="/proyectos" className={`${linkBaseClasses} ${isActive('/proyectos') ? 'text-blue-400' : 'text-slate-300'}`}>
+               Proyectos
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-blue-400 transition-all duration-300 ${isActive('/proyectos') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
 
             <Link 
@@ -54,8 +59,10 @@ export default function NavBar() {
                   : 'bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white'
                 }`}
             >
-              Contact Me
+              Contactame 
             </Link>
+
+             
           </div>
 
           {/* MOBILE HAMBURGER BUTTON (Visible only on Mobile) */}

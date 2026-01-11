@@ -62,17 +62,7 @@ export default function About() {
 
         </div>
 
-        {/* --- Tech Stack (Badges) --- */}
-        <div className="border-t border-slate-800 pt-10">
-          <h4 className="text-center text-slate-500 font-medium mb-6">Stack Tecnológico Actual</h4>
-          <div className="flex flex-wrap justify-center gap-4">
-            {["React", "Tailwind CSS", "JavaScript (ES6+)", "Node.js", "Git / GitHub", "Docker", "SQL", "Python", "Kotlin", "Jetpack Compose", "Java", "C#"].map((tech) => (
-              <span key={tech} className="px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium hover:bg-slate-700 hover:text-white transition-colors cursor-default">
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
+       
 
       </div>
     </div>

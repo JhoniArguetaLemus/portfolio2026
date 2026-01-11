@@ -8,6 +8,9 @@ import About from "./compoents/About";
 
 import Contact  from "./compoents/Contact";
 
+import Proyectos from "./compoents/Proyectos"
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+         <Route path="/proyectos" element={<Proyectos />} />
         
       </Routes>
      </main>
