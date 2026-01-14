@@ -10,6 +10,10 @@ import Contact  from "./compoents/Contact";
 
 import Proyectos from "./compoents/Proyectos"
 
+import Example from "./compoents/Example";
+
+import Curriculum from "./compoents/Curriculum";
+
 
 function App() {
   return (
@@ -22,6 +26,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
          <Route path="/proyectos" element={<Proyectos />} />
+          <Route path="/example" element={<Example />} />
+
+          <Route path="/cv" element={<Curriculum/>} />
         
       </Routes>
      </main>
