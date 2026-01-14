@@ -202,6 +202,35 @@ export default function NavBar() {
             >
               Contáctame
             </Link>
+
+             <Link
+              to="/proyectos"
+              onClick={closeMenu}
+              className={`${mobileLinkBaseClasses} mt-4 ${
+                isActive("/proyectos")
+                  ? "bg-blue-600 text-white"
+                  : "bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white"
+              }`}
+            >
+              Proyectos
+            </Link>
+
+             <Link
+              to="/cv"
+              onClick={closeMenu}
+              className={`${mobileLinkBaseClasses} mt-4 ${
+                isActive("/cv")
+                  ? "bg-blue-600 text-white"
+                  : "bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white"
+              }`}
+            >
+              CV
+            </Link>
+
+            
+
+
+
           </div>
         </div>
       )}
