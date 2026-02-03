@@ -1,7 +1,6 @@
-import  { useState} from "react";
-
+import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
-// Definimos la interfaz para el estado del formulario
+
 interface IFormData {
   name: string;
   email: string;
@@ -18,7 +17,6 @@ export default function Contact() {
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
-
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -27,11 +25,9 @@ export default function Contact() {
     }));
   };
 
-
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-
   
     setTimeout(() => {
       alert(`Mensaje de ${formData.name} enviado (Simulación)`);
@@ -41,29 +37,37 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden transition-colors duration-300">
       
-      {/* Decoración de fondo */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[10%] left-[20%] w-72 h-72 bg-blue-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-[10%] right-[20%] w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"></div>
+      {/* --- Elementos de Fondo (Grid + Manchas) --- */}
+      <div className="absolute inset-0 z-0 opacity-[0.4] dark:opacity-[0.1] transition-opacity duration-300" 
+           style={{ backgroundImage: 'radial-gradient(#64748b 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
       </div>
+      
+      {/* Manchas: En dark mode quitamos el mix-blend-multiply porque oscurece demasiado */}
+      <div className="absolute top-[10%] left-[20%] w-72 h-72 bg-blue-400/10 dark:bg-blue-600/10 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-normal pointer-events-none transition-all duration-300"></div>
+      <div className="absolute bottom-[10%] right-[20%] w-96 h-96 bg-purple-400/10 dark:bg-purple-600/10 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-normal pointer-events-none transition-all duration-300"></div>
 
       <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
         
         {/* --- Columna Izquierda: Información --- */}
         <div className="flex flex-col justify-center space-y-8">
           <div>
-            <h2 className="text-blue-400 font-semibold tracking-wide uppercase text-sm mb-2">
-              Contacto
-            </h2>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            {/* Badge estilo Pill */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full shadow-sm mb-4 transition-colors duration-300">
+                <span className="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-500 animate-pulse"></span>
+                <span className="text-slate-600 dark:text-slate-300 text-xs font-bold tracking-wide uppercase">
+                  Contacto
+                </span>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight transition-colors duration-300">
               Hablemos de <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
                 tu próximo proyecto.
               </span>
             </h1>
-            <p className="text-slate-400 text-lg leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed font-medium transition-colors duration-300">
               Estoy disponible para oportunidades freelance o contratación a tiempo completo. 
               Si tienes una idea o necesitas escalar tu sistema, mi inbox está abierto.
             </p>
@@ -71,36 +75,38 @@ export default function Contact() {
 
           <div className="space-y-6">
             {/* Item de contacto: Email */}
-            <div className="flex items-center space-x-4 text-slate-300">
-              <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-blue-400 border border-slate-700">
+            <div className="flex items-center space-x-4 group p-4 rounded-xl transition-all hover:bg-white dark:hover:bg-slate-800 hover:shadow-sm border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+              <div className="w-12 h-12 bg-white dark:bg-slate-900 rounded-xl flex items-center justify-center text-blue-600 dark:text-blue-400 border border-slate-200 dark:border-slate-700 shadow-sm group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               </div>
               <div>
-                <p className="text-sm text-slate-500 font-mono">Email</p>
-                <p className="font-medium hover:text-white transition-colors">jhoniargueta1245@gmail.com</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400 font-mono">Email</p>
+                <a href="mailto:jhoniargueta1245@gmail.com" className="font-bold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  jhoniargueta1245@gmail.com
+                </a>
               </div>
             </div>
 
             {/* Item de contacto: Ubicación */}
-            <div className="flex items-center space-x-4 text-slate-300">
-              <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-purple-400 border border-slate-700">
+            <div className="flex items-center space-x-4 group p-4 rounded-xl transition-all hover:bg-white dark:hover:bg-slate-800 hover:shadow-sm border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+              <div className="w-12 h-12 bg-white dark:bg-slate-900 rounded-xl flex items-center justify-center text-purple-600 dark:text-purple-400 border border-slate-200 dark:border-slate-700 shadow-sm group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               </div>
               <div>
-                <p className="text-sm text-slate-500 font-mono">Ubicación</p>
-                <p className="font-medium hover:text-white transition-colors">El Salvador (Remoto / Híbrido)</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400 font-mono">Ubicación</p>
+                <p className="font-bold text-slate-900 dark:text-white">El Salvador (Remoto / Híbrido)</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* --- Columna Derecha: Formulario --- */}
-        <div className="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 shadow-xl backdrop-blur-sm">
+        <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl shadow-slate-200/50 dark:shadow-slate-900/50 transition-colors duration-300">
           <form onSubmit={handleSubmit} className="space-y-6">
             
             {/* Input Nombre */}
             <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-medium text-slate-300">Nombre Completo</label>
+              <label htmlFor="name" className="text-sm font-bold text-slate-700 dark:text-slate-300">Nombre Completo</label>
               <input
                 type="text"
                 id="name"
@@ -108,14 +114,14 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-white placeholder-slate-500 transition-all"
+                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-600 rounded-lg focus:bg-white dark:focus:bg-slate-950 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition-all"
                 placeholder="John Doe"
               />
             </div>
 
             {/* Input Email */}
             <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-medium text-slate-300">Correo Electrónico</label>
+              <label htmlFor="email" className="text-sm font-bold text-slate-700 dark:text-slate-300">Correo Electrónico</label>
               <input
                 type="email"
                 id="email"
@@ -123,14 +129,14 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-white placeholder-slate-500 transition-all"
+                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-600 rounded-lg focus:bg-white dark:focus:bg-slate-950 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition-all"
                 placeholder="john@example.com"
               />
             </div>
 
             {/* TextArea Mensaje */}
             <div className="space-y-2">
-              <label htmlFor="message" className="text-sm font-medium text-slate-300">Mensaje</label>
+              <label htmlFor="message" className="text-sm font-bold text-slate-700 dark:text-slate-300">Mensaje</label>
               <textarea
                 id="message"
                 name="message"
@@ -138,19 +144,19 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 rows={4}
-                className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-white placeholder-slate-500 transition-all resize-none"
+                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-600 rounded-lg focus:bg-white dark:focus:bg-slate-950 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition-all resize-none"
                 placeholder="Cuéntame sobre tu proyecto..."
               />
             </div>
 
-            {/* Botón Submit con estado de carga */}
+            {/* Botón Submit */}
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full py-4 px-6 rounded-lg font-bold text-white transition-all transform hover:-translate-y-1 shadow-lg 
+              className={`w-full py-4 px-6 rounded-xl font-bold text-white transition-all transform hover:-translate-y-1 shadow-lg 
                 ${isSubmitting 
-                  ? 'bg-slate-600 cursor-not-allowed' 
-                  : 'bg-gradient-to-r from-blue-600 to-blue-500 hover:shadow-blue-500/25'
+                  ? 'bg-slate-400 cursor-not-allowed' 
+                  : 'bg-slate-900 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-500 shadow-slate-900/20 hover:shadow-blue-600/30'
                 }`}
             >
               {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
