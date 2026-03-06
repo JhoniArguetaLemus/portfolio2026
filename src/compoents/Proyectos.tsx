@@ -39,10 +39,13 @@ const projects: Project[] = [
     images:["imagenes/tienda1.PNG", "imagenes/tienda2.PNG","imagenes/tienda3.PNG", "imagenes/tienda4.PNG" ],
     description:"App multiplaforma creada con React Native, para gestionar clientes y ventas de manera local"
   },
+  
+
   {
-    title:"App móvil Nuevo El Salvador Shop",
-    images:["imagenes/nuevo_shop/imagen1.PNG", "imagenes/nuevo_shop/imagen2.PNG", "imagenes/nuevo_shop/imagen3.PNG", "imagenes/nuevo_shop/imagen4.PNG"],
-    description:"Aplicación de comercio electrónico con React Native y conexión a API de WooCommerce."
+    title:"Expense Tracker",
+    images:["imagenes/expense_tracker/imagen1.PNG", "imagenes/expense_tracker/imagen2.PNG", "imagenes/expense_tracker/imagen3.PNG"],
+    description:"Aplicación de seguimiento de gastos con React Native y AsyncStorage.",
+    githubUrl:"https://github.com/JhoniArguetaLemus/expense_tracker"
   }
 ];
 
